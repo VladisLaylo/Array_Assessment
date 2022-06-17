@@ -1,0 +1,100 @@
+$ 101 - $ 200
+$ 201 - $ 300
+$ 401 - $ 500
+$ 501 - $ 600
+
+def click_search_using_javaScript(driver : ChromeDriver):
+    jsText = "document.querySelector('nav').querySelector('div .is-navigation__main').querySelector('div .is-navigation__main__right').querySelector('span').click()"
+    driver.execute_script(jsText)
+    time.sleep(2)
+    if is_displayed(driver, "//form[@id='formSearch']//input[contains(@data-options, 'SearchBox')]") == False:
+        raise Exception("Failed to click our search button")
+    else:
+        print('You clicked the Search Button Successfully')
+
+def get_balance_element(self):
+        # Loop through nested shadow root tags
+        tags = [
+            "tag2",
+            "tag3",
+            "tag4",
+            "tag5",
+            ]
+
+        root = self.driver.find_element_by_tag_name("tag1")
+
+        for tag in tags:
+            root = self.expand_shadow_element(root, tag)
+
+        # Finally there.  GOLD!
+
+        return [root]
+
+def expand_shadow_element(self, element, tag):
+    shadow_root = self.driver.execute_script(
+        f'return arguments[0].shadowRoot.querySelector("{tag}")', element)
+    return shadow_root
+
+
+<script>
+  function removeChildren(elt) {
+    console.log('removing children: %s', elt);
+    while (elt.firstChild) {
+      elt.removeChild(elt.firstChild);
+    }
+  }
+  function removeShadow(elt) {
+    if (elt.shadowRoot) {
+      console.log('removing shadow: %s', elt);
+      removeChildren(elt.shadowRoot); // Leaves the shadow root property.
+      // elt.shadowRoot = null; doesn't work
+      // delete elt.shadowRoot; doesn't work
+      // What goes here to delete the shadow root (#document-fragment in devtools)?
+    }
+  }
+
+  function showPlainOldDiv() {
+    console.log('adding a plain old div');
+    var host = document.querySelector('#content');
+    removeChildren(host);
+    removeShadow(host);
+    var template = document.querySelector('#plainDiv');
+    host.appendChild(template.content.cloneNode(true));
+  }
+
+  function showShadowTemplate() {
+    console.log('adding shadowed template component');
+    var host = document.querySelector('#content');
+    removeChildren(host);
+    removeShadow(host);
+    var template = document.querySelector('#shadowedTemplateComponent');
+    var root = host.shadowRoot || host.webkitCreateShadowRoot();
+    root.appendChild(template.content.cloneNode(true));
+  }
+</script>
+
+
+# Which of these street names are you associated with?
+# What year was your most recent auto loan or lease established?
+# What state was your social security number issued (this could be the state in which you were born or had your first job)?
+# Which of the following is a current or previous employer?
+# Which of these street names are you associated with?
+# What is the monthly payment of your student loan?
+# What is the monthly payment of your most recent mortgage?
+
+"""You may have opened a mortgage loan in or around August 2018. Please select the dollar amount range in which your
+monthly mortgage payment falls. Refer only to the regular monthly payment which includes principal, interest,
+and escrow (escrow could include taxes and insurance if collected by lender). If you have not had a mortgage payment
+now or in the past, please select 'NONE OF THE ABOVE/DOES NOT APPLY'.
+
+Which one of the following retail credit cards do you have? If there is not a matched retail credit card, please select 'NONE OF THE ABOVE'.
+
+According to your credit profile, you may have opened a mortgage loan in or around March 2020. Please select the lender to whom you currently make your mortgage payments. If you do not have a mortgage, select 'NONE OF THE ABOVE/DOES NOT APPLY'.
+
+Which of the following is a current or previous employer? If there is not a matched employer name, please select 'NONE OF THE ABOVE'.
+
+Please select the county for the address you provided.
+
+I was born within a year or on the year of the date below.
+
+"""
